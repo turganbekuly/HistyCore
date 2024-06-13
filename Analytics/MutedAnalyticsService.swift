@@ -8,7 +8,7 @@
 import Foundation
 
 public struct DeferredEvent {
-    enum Event {
+    public enum Event {
         case event(name: String, properties: [String: AnalyticsValueProtocol]?)
         case personProperty(name: String, value: AnalyticsValueProtocol)
         case incresePersonProperty(name: String, value: Int)
@@ -19,8 +19,8 @@ public struct DeferredEvent {
 }
 
 public class MutedAnalyticsService: AnalyticsServiceProtocol {
-    var events: [DeferredEvent] = []
-    var shouldLogLaunchEvents: Bool = false
+    public var events: [DeferredEvent] = []
+    public var shouldLogLaunchEvents: Bool = false
 
     public func logLaunchEvents() {
         self.shouldLogLaunchEvents = true

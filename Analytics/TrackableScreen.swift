@@ -8,12 +8,12 @@
 import Foundation
 
 public protocol AnalyticsPropertyNameProtocol: AnalyticsValueProtocol {
-    var propertiesEventName: String { get }
+    public var propertiesEventName: String { get }
 }
 
-extension AnalyticsPropertyNameProtocol where Self: RawRepresentable, Self.RawValue == String {
+public extension AnalyticsPropertyNameProtocol where Self: RawRepresentable, Self.RawValue == String {
     // videoPost -> video_post
-    var propertiesEventName: String {
+    public var propertiesEventName: String {
         var string = ""
         for character in self.rawValue {
             if character.isUppercase {
@@ -33,14 +33,14 @@ public enum TrackableScreen: String, AnalyticsPropertyNameProtocol {
     case screenshotTaskCreation
 
     // videoPost -> Video Post Showed
-    var showEventName: String {
+    public var showEventName: String {
         let words = self.propertiesEventName.components(separatedBy: "_")
         let name = words.map { $0.capitalized }.joined(separator: " ")
 
         return "\(name) Showed"
     }
 
-    var valueWithFirstLetterCapital: String {
+    public var valueWithFirstLetterCapital: String {
         let initialValue = self.rawValue
         var finalValue = self.rawValue
         if let firstChar = initialValue.first {

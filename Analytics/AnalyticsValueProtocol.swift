@@ -8,46 +8,46 @@
 import Foundation
 
 public protocol AnalyticsValueProtocol {
-    var analyticsValue: NSObject { get }
+    analyticsValue: NSObject { get }
 }
 
-extension String: AnalyticsValueProtocol {
+public extension String: AnalyticsValueProtocol {
     public var analyticsValue: NSObject {
         return self as NSObject
     }
 }
 
-extension Int: AnalyticsValueProtocol {
+public extension Int: AnalyticsValueProtocol {
     public var analyticsValue: NSObject {
         return self as NSObject
     }
 }
 
-extension Bool: AnalyticsValueProtocol {
+public extension Bool: AnalyticsValueProtocol {
     public var analyticsValue: NSObject {
         return self as NSObject
     }
 }
 
-extension CGFloat: AnalyticsValueProtocol {
+public extension CGFloat: AnalyticsValueProtocol {
     public var analyticsValue: NSObject {
         return self as NSObject
     }
 }
 
-extension Float: AnalyticsValueProtocol {
+public extension Float: AnalyticsValueProtocol {
     public var analyticsValue: NSObject {
         return self as NSObject
     }
 }
 
-extension Double: AnalyticsValueProtocol {
+public extension Double: AnalyticsValueProtocol {
     public var analyticsValue: NSObject {
         return self as NSObject
     }
 }
 
-extension AnalyticsPropertyNameProtocol {
+public extension AnalyticsPropertyNameProtocol {
     var analyticsValue: NSObject {
         return self.propertiesEventName as NSObject
     }
